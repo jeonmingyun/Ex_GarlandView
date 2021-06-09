@@ -1,2 +1,1 @@
 include ':app'
-rootProject.name='garland_view_ex'

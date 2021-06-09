@@ -24,7 +24,7 @@
     <dimen name="item_avatar_size">@dimen/header_avatar_size</dimen>
     <dimen name="item_icon_size">@dimen/header_icon_size</dimen>
 
-    <dimen name="details_avatar_border">5dp</dimen>
+    <dimen name="details_avatar_border">2dp</dimen>
 
     <dimen name="dp160">160dp</dimen>
     <dimen name="dp190">190dp</dimen>
