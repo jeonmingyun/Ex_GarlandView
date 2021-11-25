@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.tensun.garlandviewdemo.R;
+import com.tensun.garlandviewdemo.details.DetailsActivity;
+import com.tensun.garlandviewdemo.main.MainActivity;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -26,7 +28,7 @@ public class InnerItem  extends com.ramotion.garlandview.inner.InnerItem {
 
     private InnerData mInnerData;
 
-    public InnerItem(View itemView) {
+    public InnerItem(View itemView, final MainActivity mainAct) {
         super(itemView);
         mInnerLayout = ((ViewGroup)itemView).getChildAt(0);
 
@@ -40,7 +42,20 @@ public class InnerItem  extends com.ramotion.garlandview.inner.InnerItem {
         mInnerLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EventBus.getDefault().post(InnerItem.this);                                    // 發出InnerItem, 所有觀察目標為InnerItem的Subscribe 都會啟動
+                final InnerData itemData = getItemData();
+                if (itemData == null) {
+                    return;
+                }
+
+                DetailsActivity.start(
+                        mainAct,
+                        getItemData().name,
+                        mAddress.getText().toString(),
+                        getItemData().avatarUrl,
+                        view,
+                        mAvatarBorder
+                );
+//                EventBus.getDefault().post(InnerItem.this);
             }
         });
     }

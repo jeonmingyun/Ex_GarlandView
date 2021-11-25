@@ -22,6 +22,7 @@ import com.ramotion.garlandview.header.HeaderItem;
 import com.ramotion.garlandview.inner.InnerLayoutManager;
 import com.ramotion.garlandview.inner.InnerRecyclerView;
 import com.tensun.garlandviewdemo.R;
+import com.tensun.garlandviewdemo.main.MainActivity;
 import com.tensun.garlandviewdemo.main.inner.InnerAdapter;
 import com.tensun.garlandviewdemo.main.inner.InnerData;
 
@@ -74,7 +75,7 @@ public class OuterItem extends HeaderItem {
 
     private boolean mIsScrolling;
 
-    public OuterItem(View itemView, RecyclerView.RecycledViewPool pool) {
+    public OuterItem(View itemView, RecyclerView.RecycledViewPool pool, MainActivity mainAct) {
         super(itemView);
 
         // Init header
@@ -102,7 +103,7 @@ public class OuterItem extends HeaderItem {
         // Init RecyclerView
         mRecyclerView = (InnerRecyclerView) itemView.findViewById(R.id.recycler_view);
         mRecyclerView.setRecycledViewPool(pool);
-        mRecyclerView.setAdapter(new InnerAdapter());
+        mRecyclerView.setAdapter(new InnerAdapter(mainAct));
 
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override

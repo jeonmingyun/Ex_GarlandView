@@ -2,17 +2,15 @@ package com.tensun.garlandviewdemo.main;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import com.ramotion.garlandview.TailLayoutManager;
 import com.ramotion.garlandview.TailRecyclerView;
 import com.ramotion.garlandview.TailSnapHelper;
 import com.ramotion.garlandview.header.HeaderTransformer;
-import com.tensun.garlandviewdemo.GarlandApp;
 import com.tensun.garlandviewdemo.R;
 import com.tensun.garlandviewdemo.details.DetailsActivity;
-import com.tensun.garlandviewdemo.details.DetailsData;
 import com.tensun.garlandviewdemo.main.inner.InnerData;
 import com.tensun.garlandviewdemo.main.inner.InnerItem;
 import com.tensun.garlandviewdemo.main.outer.OuterAdapter;
@@ -24,18 +22,14 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.bloco.faker.Faker;
-
-/**
- * Q: Faker 是什麼?
- * A: Java库生成用于测试或填充开发数据库的假数据
- */
 public class MainActivity extends AppCompatActivity {
 
-    private final static int OUTER_COUNT = 10;
+    private final static int OUTER_COUNT = 1;
     private final static int INNER_COUNT = 20;
 
+    public String testStr = "onStart";
     private Images images = new Images();
+    private OuterAdapter outerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +42,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        EventBus.getDefault().register(this);
+//        EventBus.getDefault().register(this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        EventBus.getDefault().unregister(this);
+//        EventBus.getDefault().unregister(this);
     }
 
     public void setListItem() {
@@ -76,7 +70,8 @@ public class MainActivity extends AppCompatActivity {
         final TailRecyclerView rv = (TailRecyclerView) findViewById(R.id.recycler_view);
         rv.setLayoutManager(
                 new TailLayoutManager(this).setPageTransformer(new HeaderTransformer()));
-        rv.setAdapter(new OuterAdapter(data));
+        outerAdapter = new OuterAdapter(data, this);
+        rv.setAdapter(outerAdapter);
 
         new TailSnapHelper().attachToRecyclerView(rv);
     }
@@ -91,20 +86,21 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void OnInnerItemClick(InnerItem item) {
-        final InnerData itemData = item.getItemData();
-        if (itemData == null) {
-            return;
-        }
-
-        DetailsActivity.start(
-                this,
-                item.getItemData().name,
-                item.mAddress.getText().toString(),
-                item.getItemData().avatarUrl,
-                item.itemView,
-                item.mAvatarBorder
-        );
-    }
+    /* EventBus를 통해 실행*/
+//    @Subscribe(threadMode = ThreadMode.MAIN)
+//    public void OnInnerItemClick(InnerItem item) {
+//        final InnerData itemData = item.getItemData();
+//        if (itemData == null) {
+//            return;
+//        }
+//
+//        DetailsActivity.start(
+//                this,
+//                item.getItemData().name,
+//                item.mAddress.getText().toString(),
+//                item.getItemData().avatarUrl,
+//                item.itemView,
+//                item.mAvatarBorder
+//        );
+//    }
 }
