@@ -2,7 +2,7 @@ package com.tensun.garlandviewdemo.utils;
 
 
 import android.content.res.AssetManager;
-import android.databinding.BindingAdapter;
+import androidx.databinding.BindingAdapter;
 import android.graphics.Typeface;
 import android.widget.TextView;
 

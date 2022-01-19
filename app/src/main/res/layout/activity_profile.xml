@@ -8,13 +8,13 @@
     android:fitsSystemWindows="true", 可以讓系統狀態欄的背景為透明
     CoordinatorLayout應該搭配AppBarLayout 一起使用, 可以避免控件被覆蓋的情形
     -->
-    <android.support.design.widget.CoordinatorLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         tools:context="com.ramotion.garlandview.example.profile.ProfileActivity">
 
-        <android.support.design.widget.AppBarLayout
+        <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
 
             AppBarLayout和CollapsingToolbarLayout 一起使用的原因, 當我們需要圖片和toolbar一起使用, 並且保留toolbar在最上方
             -->
-            <android.support.design.widget.CollapsingToolbarLayout
+            <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:id="@+id/toolbar_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -62,7 +62,7 @@
                 </FrameLayout>
 
                 <!-- app:layout_collapseMode="pin", 確保在CollapsingToolbarLayout摺疊完之前, 可以一直固定在原位置不動 -->
-                <android.support.v7.widget.Toolbar
+                <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp160"
@@ -160,16 +160,16 @@
                     android:textSize="25sp"
                     app:font='@{"SF-UI-Display-Regular.ttf"}'
                     app:layout_collapseMode="pin"/>
-            </android.support.design.widget.CollapsingToolbarLayout>
-        </android.support.design.widget.AppBarLayout>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/details_list_color"
             android:transitionName="@string/transition_list"
-            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-    </android.support.design.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

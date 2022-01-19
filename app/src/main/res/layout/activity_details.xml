@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -125,7 +125,7 @@
             app:layout_constraintRight_toRightOf="@+id/card"
             app:layout_constraintTop_toBottomOf="@+id/tv_info"/>
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -134,7 +134,7 @@
             android:layout_marginRight="0dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/details_lists_corners_bottom"
-            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="@+id/card"
             app:layout_constraintLeft_toLeftOf="@+id/card"
             app:layout_constraintRight_toRightOf="@+id/card"
@@ -226,5 +226,5 @@
                 android:textColor="@android:color/white"
                 app:font='@{"SF-UI-Display-Semibold.ttf"}'/>
         </LinearLayout>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

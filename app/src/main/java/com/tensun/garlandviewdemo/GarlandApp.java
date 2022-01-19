@@ -1,7 +1,7 @@
 package com.tensun.garlandviewdemo;
 
 import android.app.Application;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;

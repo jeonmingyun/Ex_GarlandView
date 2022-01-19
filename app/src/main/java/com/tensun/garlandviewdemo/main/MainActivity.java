@@ -1,8 +1,8 @@
 package com.tensun.garlandviewdemo.main;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 
 import com.ramotion.garlandview.TailLayoutManager;
@@ -10,21 +10,15 @@ import com.ramotion.garlandview.TailRecyclerView;
 import com.ramotion.garlandview.TailSnapHelper;
 import com.ramotion.garlandview.header.HeaderTransformer;
 import com.tensun.garlandviewdemo.R;
-import com.tensun.garlandviewdemo.details.DetailsActivity;
 import com.tensun.garlandviewdemo.main.inner.InnerData;
-import com.tensun.garlandviewdemo.main.inner.InnerItem;
 import com.tensun.garlandviewdemo.main.outer.OuterAdapter;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final static int OUTER_COUNT = 1;
+    private final static int OUTER_COUNT = 3;
     private final static int INNER_COUNT = 20;
 
     public String testStr = "onStart";
